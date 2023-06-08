@@ -1,0 +1,8 @@
+import uos
+
+def file_exists(path):
+    try:
+        uos.stat(path)
+        return True
+    except OSError:
+        return False
