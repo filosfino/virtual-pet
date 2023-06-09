@@ -1,9 +1,9 @@
 from machine import Pin, SPI, PWM
 import framebuf
 
-BL = 13 # backlight
-DC = 8 # data/command control, high for data, low for command
-RST = 12 # reset, low active
+BL = 13  # backlight
+DC = 8  # data/command control, high for data, low for command
+RST = 12  # reset, low active
 MOSI = 11
 SCK = 10
 CS = 9

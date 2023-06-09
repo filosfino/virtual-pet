@@ -11,12 +11,14 @@ class JoyStick:
     keyB = LCDJoystickPin(17, Pin.IN, Pin.PULL_UP)
     keyX = LCDJoystickPin(19, Pin.IN, Pin.PULL_UP)
     keyY = LCDJoystickPin(21, Pin.IN, Pin.PULL_UP)
+    buttons = [keyA, keyB, keyX, keyY]
 
     up = LCDJoystickPin(2, Pin.IN, Pin.PULL_UP)
-    dowm = LCDJoystickPin(18, Pin.IN, Pin.PULL_UP)
+    down = LCDJoystickPin(18, Pin.IN, Pin.PULL_UP)
     left = LCDJoystickPin(16, Pin.IN, Pin.PULL_UP)
     right =LCDJoystickPin(20, Pin.IN, Pin.PULL_UP)
     ctrl = LCDJoystickPin(3, Pin.IN, Pin.PULL_UP)
+    moves = [up, down, left, right, ctrl]
 
 # if keyA.value() == 0:
 #     LCD.fill_rect(208,15,30,30,RGB565.red)
