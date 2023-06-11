@@ -1,12 +1,12 @@
 from machine import Pin
 
-class LCDJoystickPin(Pin):
 
+class LCDJoystickPin(Pin):
     def pressed(self):
         return self.value() == 0
 
-class JoyStick:
 
+class JoyStick:
     keyA = LCDJoystickPin(15, Pin.IN, Pin.PULL_UP)
     keyB = LCDJoystickPin(17, Pin.IN, Pin.PULL_UP)
     keyX = LCDJoystickPin(19, Pin.IN, Pin.PULL_UP)
@@ -16,9 +16,10 @@ class JoyStick:
     up = LCDJoystickPin(2, Pin.IN, Pin.PULL_UP)
     down = LCDJoystickPin(18, Pin.IN, Pin.PULL_UP)
     left = LCDJoystickPin(16, Pin.IN, Pin.PULL_UP)
-    right =LCDJoystickPin(20, Pin.IN, Pin.PULL_UP)
+    right = LCDJoystickPin(20, Pin.IN, Pin.PULL_UP)
     ctrl = LCDJoystickPin(3, Pin.IN, Pin.PULL_UP)
-    moves = [up, down, left, right, ctrl]
+    ctrl_btns = [up, down, left, right, ctrl]
+
 
 # if keyA.value() == 0:
 #     LCD.fill_rect(208,15,30,30,RGB565.red)

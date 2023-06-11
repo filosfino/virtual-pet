@@ -3,29 +3,32 @@ import cv2
 from pathlib import Path
 from glob import glob
 
+
 def process_img(path: Path):
-    print('processing', path)
+    print("processing", path)
     img_path = path.absolute()
     img = cv2.imread(str(img_path))
     img = cv2.flip(img, 1)
+    cv2.imshow("", img)
+    cv2.waitKey(0)  # waits until a key is pressed
     print(img.shape)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2BGR565)
-    rows,cols,_ = img.shape
-    output_path = Path(img_path.parent.parent.joinpath('./rgb565/output').with_stem(img_path.stem).with_suffix('.raw')).absolute()
+    rows, cols, _ = img.shape
+    output_path = Path(
+        img_path.parent.parent.joinpath("./rgb565/output").with_stem(img_path.stem).with_suffix(".raw")
+    ).absolute()
     print("output to", output_path)
-    with open(output_path, 'wb') as fp:
+    with open(output_path, "wb") as fp:
         img_data = []
         for i in range(rows):
             line = []
             for j in range(cols):
                 x, y = img[i, j]
-                pixel = int(x<<8|y).to_bytes(2, 'big')
+                pixel = int(x << 8 | y).to_bytes(2, "big")
                 line.append(pixel)
             img_data.append(b"".join(line))
         fp.write(b"".join(img_data))
-
-    # cv2.waitKey(0) # waits until a key is pressed
-    # cv2.destroyAllWindows() # destroys the window showing image
+    # cv2.destroyAllWindows()  # destroys the window showing image
 
 
 if __name__ == "__main__":

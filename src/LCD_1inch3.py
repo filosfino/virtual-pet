@@ -24,7 +24,7 @@ class LCD_1inch3(framebuf.FrameBuffer):
         self.cs.value(1)
         self.spi = SPI(1)
         self.spi = SPI(1, 1000_000)
-        self.spi = SPI(1, 100000_000, polarity=0, phase=0, sck=Pin(SCK), mosi=Pin(MOSI), miso=None)
+        self.spi = SPI(1, 62_500_000, polarity=0, phase=0, sck=Pin(SCK), mosi=Pin(MOSI), miso=None)
         self.dc = Pin(DC, Pin.OUT)
         self.dc.value(1)
         self.buffer = bytearray(self.height * self.width * 2)

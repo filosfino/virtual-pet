@@ -8,3 +8,4 @@ if __name__ == "__main__":
     LCD.fill(RGB565.black)
     LCD.show()
     game = Game(LCD)
+    game.start()
